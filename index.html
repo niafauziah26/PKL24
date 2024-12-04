@@ -45,17 +45,31 @@
          '<tr>' +
          '<th>' + nomor + '</th>' +
          '<td>' + data.nama + '</td>' +
-         '<td>' + formatAngka(data.kg) + '</td>' +
+         '<td>' + data.kg + '</td>' +
          '<td>' + data.note + '</td>' +
-         '<td>' + data.harga + '</td>' +
-         '</tr>'
-         );
-         nomor = nomor + 1;
-     });
-     
-     $('#loader').hide();
-     
-   });
+         '<td>' + data.harga + '</td>' + 
+         '<td class="stack-up">' +
+          ' <a href="#" class="btn btn-warning link-ubah"  data="' +
+          data.id +
+          '">ubah</a> ' +
+          ' <button class="btn btn-danger tombol-hapus" data="' +
+          data.id +
+          '">Hapus</button>' + '</td>' +
+          '</tr>'
+        );
+        nomor = nomor + 1;
+      });
+
+      $('.tombol-hapus').click(async function() {
+        await hapusPenjual($(this).attr('data'));
+        location.reload();
+      })
+
+      $('.link-ubah').click(async function() {
+        window.location.replace('ubah-penjual.html?docId=' + $(this).attr('data'));
+      })
+
+      $('#loader').hide();
   </script>
 </body>
 
