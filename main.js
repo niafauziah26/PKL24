@@ -49,9 +49,9 @@ export function formatAngka(x) {
 export async function tambahCustomer(nama, kg, harga) {
   try {
     const dokref = await addDoc(collection(db, 'customer'), {
-  nama: nama,
-  kg: kg,
-  harga: harga  
+      nama: nama,
+      kg: kg,
+      harga: harga  
     });
     console.log('Berhasil menambah customer' + dokref.id);
   } catch (e) { 
