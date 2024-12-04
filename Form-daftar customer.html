@@ -22,6 +22,10 @@
       <div class="mb-3">
       <label class="form-label">Kg</label>
       <input type="text" class="form-control" id="input-kg">
+      </div>
+      <div class="mb-3">
+      <label class="form-label">Note</label>
+      <input type="text" class="form-control" id="input-note">
     </div>
       <div class="mb-3">
       <label class="form-label">Harga</label>
@@ -38,11 +42,12 @@
   let tombolTambah = document.getElementById('tombol-tambah');
   let elemenNama = document.getElementById('input-nama');
   let elemenKg = document.getElementById('input-kg');
+  let elemenNote = document.getElementById('input-note');
   let elemenHarga = document.getElementById('input-harga');
   
   tombolTambah.addEventListener('click', async function (e) {
     e.preventDefault();
-    await tambahCustomer(elemenNama.value, elemenKg.value, elemenHarga.value);
+    await tambahCustomer(elemenNama.value, elemenKg.value, elemenNote.value, elemenHarga.value);
     window.location.href = 'index.html';
   });
  </script>

@@ -35,6 +35,7 @@ export async function ambilDaftarCustomer() {
       id: dok.id,
       nama: dok.data().nama,
       kg: dok.data().kg, 
+      note: dok.data().note, 
       harga: dok.data().harga,
     });
   });
@@ -46,11 +47,12 @@ export function formatAngka(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-export async function tambahCustomer(nama, kg, harga) {
+export async function tambahCustomer(nama, kg, note, harga) {
   try {
     const dokref = await addDoc(collection(db, 'customer'), {
       nama: nama,
       kg: kg,
+      note: note, 
       harga: harga  
     });
     console.log('Berhasil menambah customer' + dokref.id);
