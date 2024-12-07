@@ -60,3 +60,7 @@ export async function tambahCustomer(nama, kg, note, harga) {
     console.log('Gagal menambah customer ' + e);
   }
 }
+
+export async function hapusCustomer(docId) {
+  await deleteDoc(doc(db, "customer", docId));
+}

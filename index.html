@@ -33,7 +33,7 @@
 <a href="Form-daftar customer.html">Tambah Daftar</a>
   
   <script type="module">
-    import { ambilDaftarCustomer, formatAngka} from './main.js'
+    import { ambilDaftarCustomer, hapusCustomer, formatAngka} from './main.js'
     
    $(document).ready(async function() {
      let elemenDaftar = $("#daftar-customer > tbody");
@@ -61,15 +61,17 @@
       });
 
       $('.tombol-hapus').click(async function() {
-        await hapusPenjual($(this).attr('data'));
+        await hapusCustomer($(this).attr('data'));
         location.reload();
       })
 
       $('.link-ubah').click(async function() {
-        window.location.replace('ubah-penjual.html?docId=' + $(this).attr('data'));
+        window.location.replace('form-daftar customer.html?docId=' + $(this).attr('data'));
       })
 
       $('#loader').hide();
+
+    });
   </script>
 </body>
 
