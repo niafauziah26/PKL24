@@ -64,3 +64,19 @@ export async function tambahCustomer(nama, kg, note, harga) {
 export async function hapusCustomer(docId) {
   await deleteDoc(doc(db, "customer", docId));
 }
+
+export async function ubahCustomer(docId, nama, kg, note, harga) {
+  await updateDoc(doc(db, "customer", docId), {
+    nama: nama,
+    kg: kg,
+    note: note,
+    harga: harga
+  });
+}
+
+export async function ambilCustomer(docId) {
+  const docRef = await doc(db, "customer", docId);
+  const docSnap = await getDoc(docRef);
+
+  return await docSnap.data();
+}
