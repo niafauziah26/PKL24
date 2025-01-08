@@ -15,20 +15,20 @@
   <form class="mb-3">
     <div class="mb-3">
       <label class="form-label">Nama</label>
-      <input type="text" class="form-control" id="input-tanggal">
+      <input type="text" class="form-control" id="input-nama">
     </div>
     <div class="mb-3">
       <label class="form-label">Kg</label>
-      <input type="text" class="form-control" id="input-nis">
+      <input type="text" class="form-control" id="input-kg">
     </div>
     <div class="mb-3">
       <label class="form-label">Note</label>
-      <input type="text" class="form-control" id="input-nama">
+      <input type="text" class="form-control" id="input-note">
     </div>
     <form class="mb-3">
       <div class="mb-3">
         <label class="form-label">Harga</label></label>
-        <input type="text" class="form-control" id="input-alamat">
+        <input type="text" class="form-control" id="input-harga">
       </div>
         <button type="submit" class="btn btn-primary" id="tombol-ubah">Ubah</button>
       </form>
@@ -36,27 +36,27 @@
       <a href="index.html" class="mt-1">Lihat Daftar Customer</a>
 
       <script type="module">
-        import { ambilDaftarCustomer, ubahDaftarCustomer } from './main.js';
+        import { ambilCustomer, ubahCustomer } from './main.js';
 
         let tombolubah = document.getElementById('tombol-ubah');
-        let elemennama = document.getElementById('input-nama');
-        let elemenkg = document.getElementById('input-kg');
-        let elemennote = document.getElementById('input-note');
-        let elemenaharga = document.getElementById('input-harga');
+        let elemenNama = document.getElementById('input-nama');
+        let elemenKg = document.getElementById('input-kg');
+        let elemenNote = document.getElementById('input-note');
+        let elemenHarga = document.getElementById('input-harga');
 
         const queryString = window.location.search;
         const parameterURL = new URLSearchParams(queryString);
         const docId = parameterURL.get('docId');
-        const Absensi = await ambilabsensi(docId);
+        const Customer = await ambilCustomer(docId);
 
-        elemennama.value = Absensi.nama;
-        elemenalamat.value = Absensi.kg;
-        elemennotlpn.value = Absensi.note;
-        elemenkelas.value = Absensi.harga;
+        elemenNama.value = Customer.nama;
+        elemenKg.value = Customer.kg;
+        elemenNote.value = Customer.note;
+        elemenHarga.value = Customer.harga;
 
         tombolubah.addEventListener('click', async function(el) {
           el.preventDefault();
-          await ubahabsensi(docId, elemennama.value, elemenkg.value, elemennote.value, elemenharga.value);
+          await ubahCustomer(docId, elemenNama.value, elemenKg.value, elemenNote.value, elemenHarga.value);
           window.location.href = 'index.html';
         });
       </script>
